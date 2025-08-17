@@ -1,44 +1,24 @@
-create_clock -name Sysclock -period 10 -waveform {0 5} [get_ports clock_in]
+# ================================================
+# UART + MICROPROCESADOR DE 8 BITS .xdc BASYS 3
+# ================================================
 
-# Clock signal
+# Clock input (100 MHz)
 set_property PACKAGE_PIN W5 [get_ports clock_in]
 set_property IOSTANDARD LVCMOS33 [get_ports clock_in]
+#create_clock -period 10.00 -name sys_clk_pin -waveform {0.000 5.000} [get_ports clock_in]
+create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports clock_in]
+
+# Reset (BTN)
 set_property PACKAGE_PIN T18 [get_ports reset]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 
-set_property PACKAGE_PIN R2 [get_ports mem_prog]
-set_property IOSTANDARD LVCMOS33 [get_ports mem_prog]
+# UART RX (de PC a FPGA - PuTTY)
+set_property PACKAGE_PIN B18 [get_ports RxD]
+set_property IOSTANDARD LVCMOS33 [get_ports RxD]
 
-set_property PACKAGE_PIN W19 [get_ports ext_mem_clock]
-set_property IOSTANDARD LVCMOS33 [get_ports ext_mem_clock]
-
-set_property PACKAGE_PIN T1 [get_ports {ext_mem_addr[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_addr[3]}]
-set_property PACKAGE_PIN U1 [get_ports {ext_mem_addr[2]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_addr[2]}]
-set_property PACKAGE_PIN W2 [get_ports {ext_mem_addr[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_addr[1]}]
-set_property PACKAGE_PIN R3 [get_ports {ext_mem_addr[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_addr[0]}]
-
-set_property PACKAGE_PIN W13 [get_ports {ext_mem_bus[7]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[7]}]
-set_property PACKAGE_PIN W14 [get_ports {ext_mem_bus[6]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[6]}]
-set_property PACKAGE_PIN V15 [get_ports {ext_mem_bus[5]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[5]}]
-set_property PACKAGE_PIN W15 [get_ports {ext_mem_bus[4]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[4]}]
-set_property PACKAGE_PIN W17 [get_ports {ext_mem_bus[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[3]}]
-set_property PACKAGE_PIN W16 [get_ports {ext_mem_bus[2]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[2]}]
-set_property PACKAGE_PIN V16 [get_ports {ext_mem_bus[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[1]}]
-set_property PACKAGE_PIN V17 [get_ports {ext_mem_bus[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {ext_mem_bus[0]}]
-
-#seven-segment LED display
+# ================================================
+# 7-Segment Display (LED_out [6:0])
+# ================================================
 set_property PACKAGE_PIN W7 [get_ports {LED_out[6]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {LED_out[6]}]
 set_property PACKAGE_PIN W6 [get_ports {LED_out[5]}]
@@ -53,6 +33,10 @@ set_property PACKAGE_PIN V5 [get_ports {LED_out[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {LED_out[1]}]
 set_property PACKAGE_PIN U7 [get_ports {LED_out[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {LED_out[0]}]
+
+# ================================================
+# Anodes for 4-digit 7-segment display (Anode_Activate [3:0])
+# ================================================
 set_property PACKAGE_PIN U2 [get_ports {Anode_Activate[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {Anode_Activate[0]}]
 set_property PACKAGE_PIN U4 [get_ports {Anode_Activate[1]}]
@@ -61,3 +45,9 @@ set_property PACKAGE_PIN V4 [get_ports {Anode_Activate[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {Anode_Activate[2]}]
 set_property PACKAGE_PIN W4 [get_ports {Anode_Activate[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {Anode_Activate[3]}]
+
+# ================================================
+# No se utiliza UART TxD en este proyecto, si deseas debug por Tx:
+# set_property PACKAGE_PIN A18 [get_ports TxD]
+# set_property IOSTANDARD LVCMOS33 [get_ports TxD]
+# ================================================
