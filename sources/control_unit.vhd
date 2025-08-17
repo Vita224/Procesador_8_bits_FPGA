@@ -49,12 +49,10 @@ begin
           "00000000000000000" when (counter = "0101" and instr = "0000") else
           "00000000000000000" when (counter = "0110" and instr = "0000") else
           
-          -- instr_REG -> main_bus
-          "00000000000000001" when (counter = "0010" and instr = "0001") else -- instr_OUT (0)
-          "00000000100000001" when (counter = "0011" and instr = "0001") else -- MAR_IN - instr_OUT (8 - 0)
-          "00000000010010000" when (counter = "0100" and instr = "0001") else -- RAM_IN - A_OUT (7 - 4)
-          "00000000000000000" when (counter = "0101" and instr = "0001") else    
-          "00000000000000000" when (counter = "0110" and instr = "0001") else
+          -- STA
+          "00000000000000001" when (counter = "0010" and instr = "0001") else   -- instr_OUT
+          "00000000100000001" when (counter = "0011" and instr = "0001") else   -- MAR_IN + instr_OUT
+          "00000000010010000" when (counter = "0100" and instr = "0001") else   -- A_OUT + RAM_IN
           
           -- ADD         
           "00000000000000001" when (counter = "0010" and instr = "0010") else -- instr_OUT (0)
