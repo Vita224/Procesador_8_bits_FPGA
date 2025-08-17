@@ -35,5 +35,3 @@ begin
     output <= count when oe = '1' else "ZZZZ";
 
 end behave;
-
--- Realizamos un contador que utilizaremos para acceder a determinamos espacios en memoria al ingresar el valor del counter en el bus de datos para que luego lo tome la mem y lo envie a la ram.
