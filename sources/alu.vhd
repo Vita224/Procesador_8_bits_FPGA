@@ -36,11 +36,3 @@ begin
     zero_flag <= '1' when result(7 downto 0) = "00000000" else '0'; -- Activa la señal a 1 si el resultado (sin considerar el bit de acarreo) es 00000000
     result_out <= result(7 downto 0) when en = '1' else (others => 'Z'); -- Muestra el resultado (los 8 bits menos significativos de result) si "en" es "1"; de lo contrario la salida se pone en alta impedancia.  
 end behave;
-
--- Todos los códigos tiene la estrcutura básica donde al inicio se escriben las librerias
--- Luego especificamos las entradas y saluida de nuestro componente, siempre se abre y cierra cada bloque donde se expecifican instrucciones 
--- Luego indicamos la arquitectura de nuestro componente, donde especificamos el proceso que realizara, podemos declarar señales internas que se utilicen en el proceso y unirlas a nuestra variables de entrada y salida.
-
--- Este Alu se encarga de sumar o restar los valores almacenados en los registros "A" y "B", según la instruccion que tenga la variable op, si tiene "0" suma y con "1" resta.
--- Y la variable "en" habilita o no la salida del componente ALU
--- 
