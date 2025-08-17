@@ -38,6 +38,3 @@ begin
     end process;
 
 end logic;
-
--- Se encarga de detectar cambios en la señal del boton y dependiendo de la duración de ese cambio, se tome la entrada como 1 o 0, evitando de esta forma falsos ingresos de datos.
--- En este caso es un tiempo de 10.5 ms el que se tiene que superar para que al entrada de datos se tome en cuenta.
