@@ -31,6 +31,3 @@ begin
 	
     output <= stored_value; -- La salida output siempre refleja el valor de stored_value
 end behave;
-
--- Register Addressing Mode, donde definimos la ubicación en memoria a la que queremos acceder, ya sea para lectura o escritura de datos.
--- 
