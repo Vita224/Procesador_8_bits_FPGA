@@ -33,6 +33,3 @@ begin
     output_alu <= stored_value;
 
 end behave;
-
--- Este módulo almacena valores de 8 bits, depende de la entrada load para cargar un valor y de la señal out_en para habilitar la salida del valor almacenado.
--- Tiene una conexion directa con el modulo ALU
