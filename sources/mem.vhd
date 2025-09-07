@@ -1,11 +1,3 @@
--- ==============================================================
--- mem.vhdl (versión con byte extra = modo lento)
--- 0xAA + 16 bytes de instrucciones + FLAG + 0xFF
--- FLAG = 0x01 => slow_mode='1'
--- FLAG = 0x00 => slow_mode='0'
--- Cuando se recibe el 0xFF se activa program_ready='1'
--- ==============================================================
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
