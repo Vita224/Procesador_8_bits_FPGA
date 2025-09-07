@@ -1,10 +1,3 @@
--- ==============================================================
--- cpu.vhdl (versión con byte extra = modo lento)
--- Si se reciben 16 bytes -> modo rápido
--- Si se reciben 17 bytes (byte 17 = 0x01) -> modo lento
--- La ejecución comienza únicamente cuando program_ready='1'
--- ==============================================================
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
@@ -271,3 +264,4 @@ begin
     reg_op_oe_sig <= cu_out_sig(14);
 
 end behave;
+
