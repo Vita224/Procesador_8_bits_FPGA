@@ -49,7 +49,7 @@ begin
           "00000000000000000" when (counter = "0101" and instr = "0000") else
           "00000000000000000" when (counter = "0110" and instr = "0000") else
           
-          -- STA
+          -- STA 
           "00000000000000001" when (counter = "0010" and instr = "0001") else   -- instr_OUT
           "00000000100000001" when (counter = "0011" and instr = "0001") else   -- MAR_IN + instr_OUT
           "00000000010010000" when (counter = "0100" and instr = "0001") else   -- A_OUT + RAM_IN
